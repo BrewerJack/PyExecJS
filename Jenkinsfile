@@ -8,7 +8,6 @@ pipeline {
         [$class: 'SkippedThreshold', failureThreshold: '0'],
         [$class: 'FailedThreshold', failureThreshold: '0']],
           tools: [[$class: 'JUnitType', pattern: 'reports/**']]])
-        }
       }
     }
   }
