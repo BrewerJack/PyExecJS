@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test2') {
       steps {
-        sh 'echo $PWD'
+        sh 'cd /; echo $PWD'
       }
     }
   }
