@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'robot --outputdir / -x  my_junit_format_log.xml /test.robot'
-        junit(healthScaleFactor: 1, testResults: '/my_junit_format_log.xml')
+        sh 'robot --outputdir / -x  my_junit_format_log.xml /test.robot; junit /my_junit_format_log.xml'
       }
     }
   }
