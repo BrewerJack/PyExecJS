@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'robot --outputdir $WORKSPACE -x  my_junit_format_log.xml /test.robot'
-        xunit([JUnit(deleteOutputFiles: true, failIfNotNew: true, pattern: 'my_junit_format_log.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
+        xunit(deleteOutputFiles: true, failIfNotNew: true, pattern: 'my_junit_format_log.xml', skipNoTestFiles: false, stopProcessingIfError: true)
       }
     }
   }
