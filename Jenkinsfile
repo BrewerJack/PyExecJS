@@ -4,10 +4,12 @@ pipeline {
     stage('Test') {
       steps {
         sh 'robot --outputdir / -x  my_junit_format_log.xml /test.robot'
-        [$class: 'XUnitBuilder', thresholds: [
+      }
+      finally {
+        step([$class: 'XUnitBuilder', thresholds: [
         [$class: 'SkippedThreshold', failureThreshold: '0'],
         [$class: 'FailedThreshold', failureThreshold: '0']],
-          tools: [[$class: 'JUnitType', pattern: 'reports/**']]]
+          tools: [[$class: 'JUnitType', pattern: 'reports/**']]])
         }
       }
     }
