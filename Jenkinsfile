@@ -3,9 +3,11 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'robot --outputdir $WORKSPACE -x  my_junit_format_log.xml /test.robot || 0'
+        sh 'robot --outputdir $WORKSPACE -x  my_junit_format_log.xml /test.robot'
+      }
+      post {
         always {
-            junit 'my_junit_format_log.xml'
+          junit 'my_junit_format_log.xml'
         }
       }
     }
