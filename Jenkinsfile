@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'robot --outputdir $WORKSPACE -x  my_junit_format_log.xml /test.robot'
-        xunit()
+        xunit(testDataPublishers: 'XUnitDotNetTestType')
       }
     }
   }
