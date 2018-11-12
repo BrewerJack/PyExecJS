@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test2') {
       steps {
-        junit(healthScaleFactor: 1, testResults: '/my_junit_format_log.xml')
+        sh 'echo $PWD'
       }
     }
   }
