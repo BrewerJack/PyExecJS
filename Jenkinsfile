@@ -5,10 +5,10 @@ pipeline {
       steps {
         sh 'robot --outputdir / -x  my_junit_format_log.xml /test.robot'
       }
-    }
-    stage('test2') {
-      steps {
-        junit(testResults: '/my_junit_format_log.xml', healthScaleFactor: 100)
+      post {
+        always {
+          junit '/my_junit_format_log.xml'
+        }
       }
     }
   }
